@@ -69,7 +69,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)Blumenkranz\core;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -115,6 +117,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\engine\bk_engine.cpp" />
+    <ClCompile Include="core\engine\events\bk_event_dispatcher.cpp" />
+    <ClCompile Include="core\engine\events\bk_event.cpp" />
+    <ClCompile Include="core\engine\bk_module.cpp" />
+    <ClCompile Include="core\util\logger.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="core\renderer\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\engine\bk_engine.h" />
+    <ClInclude Include="core\engine\events\bk_event_dispatcher.h" />
+    <ClInclude Include="core\engine\events\bk_event.h" />
+    <ClInclude Include="core\engine\bk_module.h" />
+    <ClInclude Include="core\engine\events\bk_event_type.h" />
+    <ClInclude Include="core\util\logger.h" />
+    <ClInclude Include="core\renderer\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
